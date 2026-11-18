@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8B2 Magazine — 41 Cá Tính & Góc Meme Học Đường</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Space Grotesk & Be Vietnam Pro -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Be Vietnam Pro"', 'sans-serif'],
+                        display: ['"Space Grotesk"', '"Be Vietnam Pro"', 'sans-serif'],
+                    },
+                    colors: {
+                        cream: '#FFFDF9',
+                        cobalt: '#2563EB',
+                        sun: '#FACC15',
+                        coral: '#FB7185',
+                        mint: '#34D399',
+                    },
+                    boxShadow: {
+                        'comic': '6px 6px 0px 0px #0F172A',
+                        'comic-sm': '4px 4px 0px 0px #0F172A',
+                        'comic-blue': '6px 6px 0px 0px #2563EB',
+                        'comic-sun': '6px 6px 0px 0px #EAB308',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Nền kẻ ô tập học sinh nhạt kết hợp nền kem ấm áp */
+        .bg-notebook {
+            background-color: #FFFDF9;
+            background-image: 
+                linear-gradient(to right, rgba(37, 99, 235, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(37, 99, 235, 0.05) 1px, transparent 1px);
+            background-size: 28px 28px;
+        }
+        /* Hiệu ứng băng dính trang trí kiểu Scrapbook */
+        .washi-tape {
+            background: rgba(250, 204, 21, 0.78);
+            backdrop-filter: blur(2px);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+        .washi-tape-blue {
+            background: rgba(96, 165, 250, 0.72);
+            backdrop-filter: blur(2px);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+        /* Thanh cuộn tinh tế */
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #FFFDF9; }
+        ::-webkit-scrollbar-thumb { background: #94A3B8; border-radius: 99px; }
+    </style>
+</head>
+<body class="bg-notebook text-slate-900 antialiased selection:bg-sun selection:text-slate-900 overflow-x-hidden">
+
+    <!-- 1. TOP EDITORIAL NAVBAR -->
+    <header class="sticky top-0 z-40 bg-cream/90 backdrop-blur-md border-b-2 border-slate-900">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <!-- Brand -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="px-3 py-1 bg-cobalt text-white font-display font-bold text-base rounded-xl border-2 border-slate-900 shadow-comic-sm group-hover:-translate-y-0.5 transition-transform">
+                    8B2
+                </div>
+                <div>
+                    <span class="font-display font-bold text-lg tracking-tight text-slate-900 block leading-none">8B2 Magazine</span>
+                    <span class="text-[11px] font-semibold text-slate-500">41 Cá Tính • Thanh Xuân Rực Rỡ</span>
+                </div>
+            </a>
+
+            <!-- Desktop Menu -->
+            <nav class="hidden md:flex items-center gap-1.5 text-xs font-bold uppercase tracking-wide">
+                <a href="#thay-nam" class="px-3 py-2 rounded-xl hover:bg-sun/40 transition-colors">Thầy Chủ Nhiệm</a>
+                <a href="#sieu-quay" class="px-3 py-2 rounded-xl hover:bg-sun/40 transition-colors">41 Siêu Quậy</a>
+                <a href="#ra-choi" class="px-3 py-2 rounded-xl hover:bg-sun/40 transition-colors">Giờ Ra Chơi</a>
+                <a href="#ban-can-su" class="px-3 py-2 rounded-xl hover:bg-sun/40 transition-colors">Ban Cán Sự</a>
+                <a href="#danh-sach" class="px-3 py-2 rounded-xl hover:bg-sun/40 transition-colors">41 Thành Viên</a>
+            </nav>
+
+            <!-- CTA + Mobile Toggle -->
+            <div class="flex items-center gap-2">
+                <a href="#luu-but" class="px-3.5 py-2 rounded-xl bg-sun hover:bg-yellow-300 text-slate-900 font-bold text-xs border-2 border-slate-900 shadow-comic-sm active:translate-y-0.5 transition-all flex items-center gap-1.5">
+                    <i data-lucide="pen-tool" class="w-3.5 h-3.5"></i>
+                    <span>Viết lưu bút</span>
+                </a>
+                <button id="mobile-btn" class="md:hidden p-2 rounded-xl border-2 border-slate-900 bg-white" aria-label="Menu">
+                    <i data-lucide="menu" class="w-5 h-5"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cream border-t-2 border-slate-900 p-4 space-y-2">
+            <div class="grid grid-cols-2 gap-2 text-xs font-bold">
+                <a href="#thay-nam" class="m-link p-2.5 rounded-xl bg-white border-2 border-slate-900 text-center">Thầy Phan Bá Nam</a>
+                <a href="#sieu-quay" class="m-link p-2.5 rounded-xl bg-white border-2 border-slate-900 text-center">41 Siêu Quậy</a>
+                <a href="#ra-choi" class="m-link p-2.5 rounded-xl bg-white border-2 border-slate-900 text-center">Giờ Ra Chơi</a>
+                <a href="#ban-can-su" class="m-link p-2.5 rounded-xl bg-white border-2 border-slate-900 text-center">Ban Cán Sự</a>
+                <a href="#danh-sach" class="m-link col-span-2 p-2.5 rounded-xl bg-cobalt text-white border-2 border-slate-900 text-center">Danh Sách 41 Thành Viên</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. HERO SECTION: BÊN TRÁI GIỚI THIỆU 8B2 — BÊN PHẢI KHUNG MEME CHỤP ẢNH KỶ YẾU -->
+    <section class="py-12 sm:py-16 px-4 sm:px-6 border-b-2 border-slate-900">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+            
+            <!-- Cột Trái (6 cột): Giới thiệu tập thể lớp 8B2 -->
+            <div class="lg:col-span-6 space-y-6">
+                <div class="inline-flex flex-wrap items-center gap-2">
+                    <span class="px-3 py-1 rounded-full bg-cobalt text-white text-xs font-bold border-2 border-slate-900">#8B2NeverDie</span>
+                    <span class="px-3 py-1 rounded-full bg-sun text-slate-900 text-xs font-bold border-2 border-slate-900">#41ThanhVien</span>
+                    <span class="px-3 py-1 rounded-full bg-rose-200 text-slate-900 text-xs font-bold border-2 border-slate-900">#ThanhXuanTrongSang</span>
+                </div>
+
+                <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-[54px] text-slate-900 leading-[1.12] tracking-tight">
+                    Tập thể lớp <span class="inline-block bg-sun px-3 py-0.5 rounded-2xl border-2 border-slate-900 shadow-comic-sm -rotate-1">8B2</span><br>
+                    41 cá tính, một thanh xuân rực rỡ!
+                </h1>
+
+                <p class="text-slate-700 text-base sm:text-lg leading-relaxed">
+                    Chào mừng bạn ghé thăm cuốn tạp chí nhỏ của <strong>8B2</strong>! Dưới sự dẫn dắt tận tâm của thầy chủ nhiệm <strong>Phan Bá Nam</strong>, 41 tụi mình không chỉ chăm ngoan, đoàn kết mà còn sở hữu cả một "kho tàng" khoảnh khắc hài hước, trong sáng đúng chất tuổi 14.
+                </p>
+
+                <div class="flex flex-wrap items-center gap-3 pt-1">
+                    <a href="#danh-sach" class="px-5 py-3 rounded-2xl bg-cobalt hover:bg-blue-700 text-white font-bold text-sm border-2 border-slate-900 shadow-comic active:translate-y-0.5 transition-all flex items-center gap-2">
+                        <span>Xem đủ 41 thành viên</span>
+                        <i data-lucide="arrow-down-right" class="w-4 h-4"></i>
+                    </a>
+                    <a href="#thay-nam" class="px-5 py-3 rounded-2xl bg-white hover:bg-slate-50 text-slate-900 font-bold text-sm border-2 border-slate-900 shadow-comic-sm active:translate-y-0.5 transition-all">
+                        Khám phá chuyện lớp 8B2
+                    </a>
+                </div>
+            </div>
+
+            <!-- Cột Phải (6 cột): Khung Meme Minh Họa Ngay Bên Cạnh -->
+            <div class="lg:col-span-6 relative">
+                <!-- Băng dính Scrapbook trang trí -->
+                <div class="washi-tape w-28 h-7 absolute -top-3.5 left-1/2 -translate-x-1/2 -rotate-2 z-10 border border-slate-900/20"></div>
+
+                <div class="bg-white rounded-[2rem] border-2 border-slate-900 shadow-comic p-4 sm:p-5 rotate-1 hover:rotate-0 transition-transform duration-300">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="px-2.5 py-0.5 rounded-lg bg-rose-100 text-rose-800 text-xs font-extrabold border border-slate-900">MEME #01 • CHỤP ẢNH LỚP</span>
+                        <span class="text-xs font-bold text-slate-400">8B2 Studio</span>
+                    </div>
+
+                    <!-- Tranh minh họa SVG cảnh 41 bạn tạo dáng chụp ảnh tập thể siêu lầy lội -->
+                    <div class="bg-gradient-to-br from-sky-100 via-blue-50 to-amber-50 rounded-2xl border-2 border-slate-900 p-4 overflow-hidden">
+                        <svg class="w-full h-56 sm:h-64" viewBox="0 0 420 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Nền bảng xanh lớp học phía sau -->
+                            <rect x="35" y="14" width="350" height="115" rx="12" fill="#0F766E" stroke="#0F172A" stroke-width="3"/>
+                            <text x="210" y="54" text-anchor="middle" fill="#FEF08A" font-family="Space Grotesk, sans-serif" font-weight="700" font-size="22">CHÀO MỪNG ĐẾN VỚI 8B2!</text>
+                            <text x="210" y="78" text-anchor="middle" fill="#FFFFFF" font-family="Be Vietnam Pro, sans-serif" font-weight="600" font-size="12">Sĩ số: 41/41 • Độ lầy: Vô cực</text>
+
+                            <!-- Nhân vật 1 (Bên trái giơ tay chữ V nhí nhảnh) -->
+                            <circle cx="95" cy="145" r="24" fill="#FDE68A" stroke="#0F172A" stroke-width="3"/>
+                            <path d="M71 140C71 124 82 116 95 116C108 116 119 124 119 140" fill="#1E293B"/>
+                            <circle cx="88" cy="145" r="3" fill="#0F172A"/>
+                            <circle cx="102" cy="145" r="3" fill="#0F172A"/>
+                            <path d="M88 154Q95 162 102 154" stroke="#0F172A" stroke-width="2.5" stroke-linecap="round"/>
+                            <rect x="73" y="172" width="44" height="45" rx="12" fill="#3B82F6" stroke="#0F172A" stroke-width="3"/>
+                            <!-- Tay giơ chữ V -->
+                            <path d="M62 155L54 136M62 155L68 136" stroke="#0F172A" stroke-width="3.5" stroke-linecap="round"/>
+
+                            <!-- Nhân vật 2 (Ở giữa đeo kính siêu ngầu) -->
+                            <circle cx="210" cy="136" r="27" fill="#FED7AA" stroke="#0F172A" stroke-width="3"/>
+                            <path d="M183 130C183 112 195 104 210 104C225 104 237 112 237 130" fill="#0F172A"/>
+                            <!-- Kính râm -->
+                            <rect x="189" y="128" width="18" height="11" rx="3" fill="#0F172A"/>
+                            <rect x="213" y="128" width="18" height="11" rx="3" fill="#0F172A"/>
+                            <line x1="207" y1="132" x2="213" y2="132" stroke="#0F172A" stroke-width="3"/>
+                            <path d="M201 149Q210 156 219 149" stroke="#0F172A" stroke-width="2.5" stroke-linecap="round"/>
+                            <rect x="184" y="166" width="52" height="51" rx="14" fill="#FACC15" stroke="#0F172A" stroke-width="3"/>
+
+                            <!-- Nhân vật 3 (Bên phải làm mặt hài hước) -->
+                            <circle cx="325" cy="145" r="24" fill="#FDE68A" stroke="#0F172A" stroke-width="3"/>
+                            <path d="M301 140C301 124 312 116 325 116C338 116 349 124 349 140" fill="#334155"/>
+                            <path d="M314 143L320 146L314 149" stroke="#0F172A" stroke-width="2.5" stroke-linecap="round"/>
+                            <path d="M336 143L330 146L336 149" stroke="#0F172A" stroke-width="2.5" stroke-linecap="round"/>
+                            <ellipse cx="325" cy="156" rx="6" ry="7" fill="#FB7185" stroke="#0F172A" stroke-width="2"/>
+                            <rect x="303" y="172" width="44" height="45" rx="12" fill="#34D399" stroke="#0F172A" stroke-width="3"/>
+
+                            <!-- Ngôi sao & lấp lánh -->
+                            <text x="145" y="112" font-size="20">✨</text>
+                            <text x="265" y="112" font-size="20">📸</text>
+                        </svg>
+                    </div>
+
+                    <!-- Caption Meme -->
+                    <div class="mt-3.5 bg-slate-900 text-white p-3.5 rounded-2xl flex items-center justify-between gap-3">
+                        <p class="text-xs sm:text-sm font-semibold leading-snug">
+                            “Ống kính thanh xuân vừa đếm: ‘1, 2, 3 cười tự nhiên nào!’ — Và đây là biểu cảm của 41 thành viên 8B2...”
+                        </p>
+                        <button onclick="likeMeme(this)" class="shrink-0 px-3 py-1.5 rounded-xl bg-rose-500 hover:bg-rose-400 text-white text-xs font-extrabold flex items-center gap-1 transition-transform active:scale-95">
+                            <span>😂</span> <span>82</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. KHỐI THẦY CHỦ NHIỆM PHAN BÁ NAM + MEME NGAY BÊN CẠNH -->
+    <section id="thay-nam" class="py-14 sm:py-20 px-4 sm:px-6 border-b-2 border-slate-900 bg-white/60">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+                
+                <!-- Cột Trái (6 cột): Thẻ Vinh Danh Thầy Chủ Nhiệm Phan Bá Nam -->
+                <div class="lg:col-span-6 space-y-5">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-amber-100 text-amber-900 text-xs font-extrabold border-2 border-slate-900">
+                        <i data-lucide="award" class="w-4 h-4 text-amber-600"></i>
+                        <span>NGƯỜI THUYỀN TRƯỞNG CỦA 8B2</span>
+                    </div>
+
+                    <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate-900 leading-tight">
+                        Thầy Chủ Nhiệm <span class="text-cobalt underline decoration-sun decoration-4 underline-offset-4">Phan Bá Nam</span>
+                    </h2>
+
+                    <p class="text-slate-700 text-base leading-relaxed">
+                        Với 41 thành viên lớp 8B2, thầy <strong>Phan Bá Nam</strong> không chỉ là người thầy tận tụy trên bục giảng mà còn là người anh lớn luôn lắng nghe, thấu hiểu và bao dung với những trò nghịch ngợm tuổi học trò.
+                    </p>
+
+                    <div class="bg-cream p-5 rounded-2xl border-2 border-slate-900 shadow-comic-sm space-y-2.5">
+                        <div class="flex items-center gap-2 text-xs font-extrabold text-cobalt uppercase">
+                            <i data-lucide="quote" class="w-4 h-4"></i>
+                            <span>Điều tụi em yêu quý nhất ở Thầy</span>
+                        </div>
+                        <p class="text-sm text-slate-700 italic leading-relaxed">
+                            “Thầy luôn nhắc tụi em phải học thật chắc, sống thật tử tế và đoàn kết như anh em một nhà. Dù lớp có đôi lúc hơi ồn ào một chút nhưng thầy vẫn luôn mỉm cười động viên cả lớp cố gắng!”
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Cột Phải (6 cột): Meme Vui Vẻ Về Thầy Chủ Nhiệm Ngay Bên Cạnh -->
+                <div class="lg:col-span-6 relative">
+                    <div class="washi-tape-blue w-28 h-7 absolute -top-3.5 right-10 rotate-3 z-10 border border-slate-900/20"></div>
+
+                    <div class="bg-cream rounded-[2rem] border-2 border-slate-900 shadow-comic-blue p-4 sm:p-5">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-0.5 rounded-lg bg-sun text-slate-900 text-xs font-extrabold border border-slate-900">MEME #02 • GÓC THẦY CHỦ NHIỆM</span>
+                            <span class="text-xs font-bold text-cobalt">Tốc độ 0.5 giây</span>
+                        </div>
+
+                        <!-- Tranh minh họa SVG: Thầy Phan Bá Nam bước vào cửa, cả lớp ngồi thẳng lưng 90 độ -->
+                        <div class="bg-gradient-to-br from-amber-50 via-yellow-50 to-sky-100 rounded-2xl border-2 border-slate-900 p-4">
+                            <svg class="w-full h-56 sm:h-64" viewBox="0 0 420 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Cửa lớp học bên trái -->
+                                <rect x="18" y="20" width="95" height="190" rx="8" fill="#FDE68A" stroke="#0F172A" stroke-width="3"/>
+                                <rect x="30" y="34" width="70" height="75" rx="4" fill="#E0F2FE" stroke="#0F172A" stroke-width="2"/>
+                                <!-- Thầy Phan Bá Nam mỉm cười hiền hậu ở cửa -->
+                                <circle cx="65" cy="82" r="20" fill="#FED7AA" stroke="#0F172A" stroke-width="2.5"/>
+                                <path d="M46 76C48 63 56 58 65 58C74 58 82 63 84 76" fill="#1E293B"/>
+                                <!-- Kính của thầy -->
+                                <rect x="52" y="78" width="10" height="7" rx="2" fill="white" stroke="#0F172A" stroke-width="1.8"/>
+                                <rect x="68" y="78" width="10" height="7" rx="2" fill="white" stroke="#0F172A" stroke-width="1.8"/>
+                                <line x1="62" y1="81" x2="68" y2="81" stroke="#0F172A" stroke-width="1.8"/>
+                                <path d="M59 91Q65 96 71 91" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
+                                <!-- Áo sơ mi công sở -->
+                                <path d="M40 135C40 115 50 105 65 105C80 105 90 115 90 135V208H40V135Z" fill="#2563EB" stroke="#0F172A" stroke-width="2.5"/>
+                                <path d="M65 105L58 122L65 118L72 122L65 105Z" fill="#FFFFFF"/>
+
+                                <!-- Bảng thông báo chuyển chế độ -->
+                                <rect x="135" y="22" width="265" height="38" rx="10" fill="#0F172A"/>
+                                <text x="267" y="46" text-anchor="middle" fill="#FACC15" font-family="Be Vietnam Pro, sans-serif" font-weight="700" font-size="12">CHẾ ĐỘ: CHỢ VỠ ➔ GƯƠNG MẪU (0.5s)</text>
+
+                                <!-- 2 Học sinh ngồi thẳng lưng 90 độ chép bài siêu ngoan -->
+                                <!-- Bàn học -->
+                                <rect x="135" y="165" width="265" height="14" rx="5" fill="#D97706" stroke="#0F172A" stroke-width="2.5"/>
+                                <rect x="150" y="179" width="12" height="31" fill="#92400E" stroke="#0F172A" stroke-width="2"/>
+                                <rect x="375" y="179" width="12" height="31" fill="#92400E" stroke="#0F172A" stroke-width="2"/>
+
+                                <!-- Học sinh 1 -->
+                                <circle cx="205" cy="108" r="20" fill="#FDE68A" stroke="#0F172A" stroke-width="2.5"/>
+                                <path d="M185 104C185 90 194 84 205 84C216 84 225 90 225 104" fill="#0F172A"/>
+                                <circle cx="199" cy="107" r="2.5" fill="#0F172A"/>
+                                <circle cx="211" cy="107" r="2.5" fill="#0F172A"/>
+                                <path d="M200 116Q205 120 210 116" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
+                                <rect x="187" y="130" width="36" height="35" rx="8" fill="#FFFFFF" stroke="#0F172A" stroke-width="2.5"/>
+                                <!-- Vở mở trên bàn -->
+                                <polygon points="180,165 230,165 222,155 188,155" fill="#FFFFFF" stroke="#0F172A" stroke-width="2"/>
+
+                                <!-- Học sinh 2 -->
+                                <circle cx="325" cy="108" r="20" fill="#FED7AA" stroke="#0F172A" stroke-width="2.5"/>
+                                <path d="M305 104C305 90 314 84 325 84C336 84 345 90 345 104" fill="#1E293B"/>
+                                <circle cx="319" cy="107" r="2.5" fill="#0F172A"/>
+                                <circle cx="331" cy="107" r="2.5" fill="#0F172A"/>
+                                <path d="M320 116Q325 120 330 116" stroke="#0F172A" stroke-width="2" stroke-linecap="round"/>
+                                <rect x="307" y="130" width="36" height="35" rx="8" fill="#38BDF8" stroke="#0F172A" stroke-width="2.5"/>
+                                <polygon points="300,165 350,165 342,155 308,155" fill="#FFFFFF" stroke="#0F172A" stroke-width="2"/>
+
+                                <!-- Ký hiệu góc vuông 90 độ -->
+                                <path d="M174 148H182V156" stroke="#EF4444" stroke-width="2.5"/>
+                                <text x="152" y="143" fill="#EF4444" font-weight="800" font-size="11">90°</text>
+                            </svg>
+                        </div>
+
+                        <!-- Caption Meme -->
+                        <div class="mt-3.5 bg-slate-900 text-white p-3.5 rounded-2xl flex items-center justify-between gap-3">
+                            <p class="text-xs sm:text-sm font-semibold leading-snug">
+                                “Khi thầy Phan Bá Nam vừa lướt qua hành lang: Từ chế độ ‘chợ vỡ’ bật sang ‘học sinh gương mẫu’ trong 0.5 giây!”
+                            </p>
+                            <button onclick="likeMeme(this)" class="shrink-0 px-3 py-1.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-900 text-xs font-extrabold flex items-center gap-1 transition-transform active:scale-95">
+                                <span>🫡</span> <span>95</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. KHỐI 41 THÀNH VIÊN SIÊU QUẬY + MEME NGAY BÊN CẠNH (ZIG-ZAG: MEME TRÁI - NỘI DUNG PHẢI) -->
+    <section id="sieu-quay" class="py-14 sm:py-20 px-4 sm:px-6 border-b-2 border-slate-900">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+                
+                <!-- Cột Trái (6 cột): Meme 41 Thành Viên Siêu Quậy (Đặt bên trái trên desktop tạo bố cục Zig-Zag) -->
+                <div class="lg:col-span-6 order-2 lg:order-1 relative">
+                    <div class="washi-tape w-28 h-7 absolute -top-3.5 left-10 -rotate-3 z-10 border border-slate-900/20"></div>
+
+                    <div class="bg-white rounded-[2rem] border-2 border-slate-900 shadow-comic p-4 sm:p-5">
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-0.5 rounded-lg bg-emerald-100 text-emerald-900 text-xs font-extrabold border border-slate-900">MEME #03 • 41 CHIẾN THẦN</span>
+                            <span class="text-xs font-bold text-slate-400">Hỏi bài cũ</span>
+                        </div>
+
+                        <!-- Tranh minh họa SVG: Khi cô hỏi "Ai xung phong lên bảng?" cả lớp đồng loạt cúi tìm bút rơi -->
+                        <div class="bg-gradient-to-br from-emerald-50 via-teal-50 to-sky-100 rounded-2xl border-2 border-slate-900 p-4">
+                            <svg class="w-full h-56 sm:h-64" viewBox="0 0 420 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <!-- Bong bóng lời thoại trên cùng -->
+                                <rect x="55" y="14" width="310" height="40" rx="14" fill="#FFFFFF" stroke="#0F172A" stroke-width="2.5"/>
+                                <text x="210" y="39" text-anchor="middle" fill="#0F172A" font-family="Be Vietnam Pro, sans-serif" font-weight="800" font-size="13">“Cả lớp mình ai xung phong lên bảng nào?”</text>
+
+                                <!-- 3 bạn đồng loạt cúi gằm mặt nhìn xuống gầm bàn -->
+                                <!-- Bạn 1 -->
+                                <g transform="translate(45, 75)">
+                                    <rect x="10" y="65" width="75" height="12" rx="4" fill="#F59E0B" stroke="#0F172A" stroke-width="2.5"/>
+                                    <!-- Đầu cúi gằm -->
+                                    <circle cx="48" cy="48" r="22" fill="#FDE68A" stroke="#0F172A" stroke-width="2.5"/>
+                                    <path d="M26 44C26 28 36 22 48 22C60 22 70 28 70 44C62 38 34 38 26 44Z" fill="#0F172A"/>
+                                    <!-- Mắt nhìn chằm chằm xuống đất -->
+                                    <circle cx="41" cy="54" r="2.5" fill="#0F172A"/>
+                                    <circle cx="55" cy="54" r="2.5" fill="#0F172A"/>
+                                    <!-- Giọt mồ hôi -->
+                                    <path d="M75 34C75 34 80 40 80 43C80 45.5 77.8 47.5 75 47.5C72.2 47.5 70 45.5 70 43C70 40 75 34 75 34Z" fill="#38BDF8"/>
+                                    <!-- Cây bút dưới đất -->
+                                    <line x1="35" y1="115" x2="62" y2="115" stroke="#EF4444" stroke-width="4" stroke-linecap="round"/>
+                                </g>
+
+                                <!-- Bạn 2 -->
+                                <g transform="translate(162, 75)">
+                                    <rect x="10" y="65" width="75" height="12" rx="4" fill="#F59E0B" stroke="#0F172A" stroke-width="2.5"/>
+                                    <circle cx="48" cy="48" r="22" fill="#FED7AA" stroke="#0F172A" stroke-width="2.5"/>
+                                    <path d="M26 44C26 28 36 22 48 22C60 22 70 28 70 44C62 38 34 38 26 44Z" fill="#334155"/>
+                                    <circle cx="41" cy="54" r="2.5" fill="#0F172A"/>
+                                    <circle cx="55" cy="54" r="2.5" fill="#0F172A"/>
+                                    <path d="M75 34C75 34 80 40 80 43C80 45.5 77.8 47.5 75 47.5C72.2 47.5 70 45.5 70 43C70 40 75 34 75 34Z" fill="#38BDF8"/>
+                                    <line x1="35" y1="115" x2="62" y2="115" stroke="#2563EB" stroke-width="4" stroke-linecap="round"/>
+                                </g>
+
+                                <!-- Bạn 3 -->
+                                <g transform="translate(280, 75)">
+                                    <rect x="10" y="65" width="75" height="12" rx="4" fill="#F59E0B" stroke="#0F172A" stroke-width="2.5"/>
+                                    <circle cx="48" cy="48" r="22" fill="#FDE68A" stroke="#0F172A" stroke-width="2.5"/>
+                                    <path d="M26 44C26 28 36 22 48 22C60 22 70 28 70 44C62 38 34 38 26 44Z" fill="#1E293B"/>
+                                    <circle cx="41" cy="54" r="2.5" fill="#0F172A"/>
+                                    <circle cx="55" cy="54" r="2.5" fill="#0F172A"/>
+                                    <path d="M75 34C75 34 80 40 80 43C80 45.5 77.8 47.5 75 47.5C72.2 47.5 70 45.5 70 43C70 40 75 34 75 34Z" fill="#38BDF8"/>
+                                    <line x1="35" y1="115" x2="62" y2="115" stroke="#10B981" stroke-width="4" stroke-linecap="round"/>
+                                </g>
+
+                                <text x="210" y="216" text-anchor="middle" fill="#0F766E" font-family="Be Vietnam Pro, sans-serif" font-weight="700" font-size="12">41 cây bút tự nhiên rủ nhau rơi cùng một lúc...</text>
+                            </svg>
+                        </div>
+
+                        <!-- Caption Meme -->
+                        <div class="mt-3.5 bg-slate-900 text-white p-3.5 rounded-2xl flex items-center justify-between gap-3">
+                            <p class="text-xs sm:text-sm font-semibold leading-snug">
+                                “Bình thường 41 thành viên nhao nhao như ong vỡ tổ, đến lúc hỏi ‘Ai lên bảng?’ thì cả lớp đồng loạt cúi tìm bút rơi!”
+                            </p>
+                            <button onclick="likeMeme(this)" class="shrink-0 px-3 py-1.5 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-slate-900 text-xs font-extrabold flex items-center gap-1 transition-transform active:scale-95">
+                                <span>🤣</span> <span>108</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cột Phải (6 cột): Giới thiệu 41 Thành Viên Siêu Quậy Tích Cực -->
+                <div class="lg:col-span-6 order-1 lg:order-2 space-y-5">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-emerald-100 text-emerald-900 text-xs font-extrabold border-2 border-slate-900">
+                        <i data-lucide="users" class="w-4 h-4 text-emerald-600"></i>
+                        <span>41 MẢNH GHÉP KHÔNG THỂ TÁCH RỜI</span>
+                    </div>
+
+                    <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate-900 leading-tight">
+                        41 Thành Viên “Siêu Quậy” Nhưng Cực Kỳ <span class="text-emerald-600">Đoàn Kết</span>
+                    </h2>
+
+                    <p class="text-slate-700 text-base leading-relaxed">
+                        Đừng để vẻ ngoài hiền lành đánh lừa! <strong>41 bạn của 8B2</strong> là tổ hợp của những cây hài bàn cuối, những "chiến thần" giải toán tốc độ và cả hội cổ động viên nhiệt tình nhất mỗi khi trường có hội thao hay văn nghệ.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-3 pt-1">
+                        <div class="bg-white p-4 rounded-2xl border-2 border-slate-900 shadow-comic-sm">
+                            <div class="font-display font-bold text-2xl text-cobalt">41/41</div>
+                            <div class="text-xs font-bold text-slate-600 mt-0.5">Luôn có mặt đủ trong mọi cuộc vui</div>
+                        </div>
+                        <div class="bg-white p-4 rounded-2xl border-2 border-slate-900 shadow-comic-sm">
+                            <div class="font-display font-bold text-2xl text-rose-500">04 Tổ</div>
+                            <div class="text-xs font-bold text-slate-600 mt-0.5">Hỗ trợ nhau học tập & trực nhật</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. KHỐI GIỜ RA CHƠI & ĐỜI THƯỜNG + MEME TƯƠNG TÁC NGAY BÊN CẠNH -->
+    <section id="ra-choi" class="py-14 sm:py-20 px-4 sm:px-6 border-b-2 border-slate-900 bg-white/60">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+                
+                <!-- Cột Trái (6 cột): Giới thiệu Giờ Ra Chơi & Các Tình Huống Đời Thường -->
+                <div class="lg:col-span-6 space-y-5">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-rose-100 text-rose-900 text-xs font-extrabold border-2 border-slate-900">
+                        <i data-lucide="zap" class="w-4 h-4 text-rose-600"></i>
+                        <span>NHỊP SỐNG HỌC ĐƯỜNG 8B2</span>
+                    </div>
+
+                    <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate-900 leading-tight">
+                        Giờ Ra Chơi Chạy Vù Vù & Những Pha “Gánh Team” Kinh Điển
+                    </h2>
+
+                    <p class="text-slate-700 text-base leading-relaxed">
+                        Ở 8B2, mỗi tiếng trống trường vang lên đều mở ra một "đường đua" mới: từ cú bứt tốc ánh sáng xuống căng-tin giờ ra chơi cho đến màn hợp lực giải đề trước giờ kiểm tra 15 phút. Bấm chọn từng khoảnh khắc bên dưới để xem meme tương ứng nhé!
+                    </p>
+
+                    <!-- Các nút chọn tình huống đời thường -> đổi Meme ngay bên cạnh -->
+                    <div class="space-y-2.5 pt-1" id="moment-selector">
+                        <button onclick="selectMoment(0)" data-idx="0" class="moment-btn w-full text-left p-4 rounded-2xl bg-sun border-2 border-slate-900 shadow-comic-sm flex items-center justify-between transition-all">
+                            <div class="flex items-center gap-3">
+                                <span class="text-xl">🏃‍♂️💨</span>
+                                <div>
+                                    <div class="font-bold text-sm text-slate-900">1. Giờ ra chơi chạy vù vù xuống căng-tin</div>
+                                    <div class="text-xs text-slate-700">Tốc độ ánh sáng khi tiếng trống giải lao vừa vang</div>
+                                </div>
+                            </div>
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-900"></i>
+                        </button>
+
+                        <button onclick="selectMoment(1)" data-idx="1" class="moment-btn w-full text-left p-4 rounded-2xl bg-white hover:bg-slate-50 border-2 border-slate-900 flex items-center justify-between transition-all">
+                            <div class="flex items-center gap-3">
+                                <span class="text-xl">✍️🔥</span>
+                                <div>
+                                    <div class="font-bold text-sm text-slate-900">2. 5 phút trước giờ kiểm tra 15 phút</div>
+                                    <div class="text-xs text-slate-500">Hội nghị ôn bài cấp tốc quanh bàn Lớp phó Thắm</div>
+                                </div>
+                            </div>
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+                        </button>
+
+                        <button onclick="selectMoment(2)" data-idx="2" class="moment-btn w-full text-left p-4 rounded-2xl bg-white hover:bg-slate-50 border-2 border-slate-900 flex items-center justify-between transition-all">
+                            <div class="flex items-center gap-3">
+                                <span class="text-xl">🧹✨</span>
+                                <div>
+                                    <div class="font-bold text-sm text-slate-900">3. Khi nghe tin sắp chấm điểm thi đua trực nhật</div>
+                                    <div class="text-xs text-slate-500">Cả 4 tổ đồng loạt hóa thân thành siêu nhân dọn lớp</div>
+                                </div>
+                            </div>
+                            <i data-lucide="chevron-right" class="w-4 h-4 text-slate-400"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Cột Phải (6 cột): Khung Meme Động Thay Đổi Theo Tình Huống Bên Trái -->
+                <div class="lg:col-span-6 relative">
+                    <div class="washi-tape-blue w-28 h-7 absolute -top-3.5 left-1/2 -translate-x-1/2 rotate-2 z-10 border border-slate-900/20"></div>
+
+                    <div class="bg-cream rounded-[2rem] border-2 border-slate-900 shadow-comic p-4 sm:p-5">
+                        <div class="flex items-center justify-between mb-3">
+                            <span id="moment-badge" class="px-2.5 py-0.5 rounded-lg bg-rose-200 text-slate-900 text-xs font-extrabold border border-slate-900">MEME #04 • GIỜ RA CHƠI</span>
+                            <span id="moment-speed" class="text-xs font-bold text-rose-600">Vận tốc: 100 km/h</span>
+                        </div>
+
+                        <!-- Vùng hiển thị tranh minh họa SVG của tình huống đang chọn -->
+                        <div id="moment-canvas" class="bg-gradient-to-br from-rose-50 via-amber-50 to-orange-100 rounded-2xl border-2 border-slate-900 p-4">
+                            <!-- Nội dung SVG mặc định (Tình huống 0: Chạy vù vù giờ ra chơi) -->
+                        </div>
+
+                        <!-- Caption Meme -->
+                        <div class="mt-3.5 bg-slate-900 text-white p-3.5 rounded-2xl flex items-center justify-between gap-3">
+                            <p id="moment-caption" class="text-xs sm:text-sm font-semibold leading-snug">
+                                “Trống ra chơi vừa đánh tiếng đầu tiên: 41 vận động viên điền kinh 8B2 lập tức phóng vù vù xuống căng-tin!”
+                            </p>
+                            <button onclick="likeMeme(this)" class="shrink-0 px-3 py-1.5 rounded-xl bg-rose-500 hover:bg-rose-400 text-white text-xs font-extrabold flex items-center gap-1 transition-transform active:scale-95">
+                                <span>🔥</span> <span id="moment-likes">124</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. BAN CÁN SỰ LỚP 8B2 (THẺ HIỆN ĐẠI + STICKER VAI TRÒ) -->
+    <section id="ban-can-su" class="py-14 sm:py-20 px-4 sm:px-6 border-b-2 border-slate-900">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <span class="px-3.5 py-1 rounded-full bg-cobalt text-white text-xs font-extrabold border-2 border-slate-900">ĐỘI NGŨ NÒNG CỐT</span>
+                <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate-900 mt-3">Ban Cán Sự & 4 Tổ Trưởng 8B2</h2>
+                <p class="text-slate-600 text-sm sm:text-base mt-2">Những gương mặt nhiệt huyết luôn giữ vững kỷ luật, phong trào và tinh thần học tập cho cả lớp.</p>
+            </div>
+
+            <!-- 2 Thủ lĩnh lớp: Lớp trưởng & Lớp phó học tập -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <!-- Lớp trưởng: Nguyễn Thị Loan Đài -->
+                <div class="bg-gradient-to-br from-amber-100 via-yellow-50 to-white rounded-[2rem] p-6 border-2 border-slate-900 shadow-comic flex flex-col sm:flex-row items-start sm:items-center gap-5">
+                    <div class="w-16 h-16 rounded-2xl bg-sun text-slate-900 font-display font-bold text-2xl flex items-center justify-center border-2 border-slate-900 shrink-0 shadow-comic-sm">
+                        👑
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-wrap items-center gap-2 mb-1">
+                            <span class="px-2.5 py-0.5 rounded-lg bg-slate-900 text-sun text-xs font-extrabold">LỚP TRƯỞNG</span>
+                            <span class="text-xs font-bold text-slate-500">Thành viên Tổ 1</span>
+                        </div>
+                        <h3 class="font-display font-bold text-2xl text-slate-900">Nguyễn Thị Loan Đài</h3>
+                        <p class="text-sm text-slate-700 mt-1.5 leading-relaxed">
+                            “Chị đại” bản lĩnh và tháo vát của 8B2. Luôn điều hành lớp gọn gàng, kết nối 41 thành viên cực kỳ ăn ý!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Lớp phó học tập: Bùi Thị Thắm -->
+                <div class="bg-gradient-to-br from-sky-100 via-blue-50 to-white rounded-[2rem] p-6 border-2 border-slate-900 shadow-comic-blue flex flex-col sm:flex-row items-start sm:items-center gap-5">
+                    <div class="w-16 h-16 rounded-2xl bg-cobalt text-white font-display font-bold text-2xl flex items-center justify-center border-2 border-slate-900 shrink-0 shadow-comic-sm">
+                        📚
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex flex-wrap items-center gap-2 mb-1">
+                            <span class="px-2.5 py-0.5 rounded-lg bg-cobalt text-white text-xs font-extrabold">LỚP PHÓ HỌC TẬP</span>
+                            <span class="px-2 py-0.5 rounded-lg bg-teal-100 text-teal-900 text-xs font-bold border border-slate-900">Kiêm Tổ trưởng Tổ 2</span>
+                        </div>
+                        <h3 class="font-display font-bold text-2xl text-slate-900">Bùi Thị Thắm</h3>
+                        <p class="text-sm text-slate-700 mt-1.5 leading-relaxed">
+                            “Chiến thần giải đề” của 8B2. Luôn tận tình giảng bài cho các bạn trước giờ truy bài và giữ phong độ học tập cực đỉnh.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4 Tổ trưởng -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <!-- Tổ 1: Phạm Bình Minh -->
+                <div class="bg-emerald-50 rounded-3xl p-5 border-2 border-slate-900 shadow-comic-sm hover:-translate-y-1 transition-transform">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="px-2.5 py-1 rounded-xl bg-emerald-400 text-slate-900 text-xs font-extrabold border border-slate-900">Tổ trưởng Tổ 1</span>
+                        <span class="text-xl">⚡</span>
+                    </div>
+                    <h4 class="font-display font-bold text-lg text-slate-900">Phạm Bình Minh</h4>
+                    <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">Nhanh nhẹn, nhiệt huyết, luôn nhắc Tổ 1 hoàn thành bài tập đúng hạn (11 thành viên).</p>
+                </div>
+
+                <!-- Tổ 2: Bùi Thị Thắm -->
+                <div class="bg-teal-50 rounded-3xl p-5 border-2 border-slate-900 shadow-comic-sm hover:-translate-y-1 transition-transform">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="px-2.5 py-1 rounded-xl bg-teal-400 text-slate-900 text-xs font-extrabold border border-slate-900">Tổ trưởng Tổ 2</span>
+                        <span class="text-xl">🎯</span>
+                    </div>
+                    <h4 class="font-display font-bold text-lg text-slate-900">Bùi Thị Thắm</h4>
+                    <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">Gương mẫu, chu đáo, dẫn dắt Tổ 2 luôn nằm trong top đầu thi đua học tập (10 thành viên).</p>
+                </div>
+
+                <!-- Tổ 3: Nguyễn Ngọc Tường Vy -->
+                <div class="bg-violet-50 rounded-3xl p-5 border-2 border-slate-900 shadow-comic-sm hover:-translate-y-1 transition-transform">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="px-2.5 py-1 rounded-xl bg-violet-300 text-slate-900 text-xs font-extrabold border border-slate-900">Tổ trưởng Tổ 3</span>
+                        <span class="text-xl">🌸</span>
+                    </div>
+                    <h4 class="font-display font-bold text-lg text-slate-900">Nguyễn Ngọc Tường Vy</h4>
+                    <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">Khéo léo, tận tâm, giúp các thành viên Tổ 3 luôn đoàn kết và vui vẻ (10 thành viên).</p>
+                </div>
+
+                <!-- Tổ 4: Nguyễn Thị Kim Phương -->
+                <div class="bg-rose-50 rounded-3xl p-5 border-2 border-slate-900 shadow-comic-sm hover:-translate-y-1 transition-transform">
+                    <div class="flex items-center justify-between mb-3">
+                        <span class="px-2.5 py-1 rounded-xl bg-rose-300 text-slate-900 text-xs font-extrabold border border-slate-900">Tổ trưởng Tổ 4</span>
+                        <span class="text-xl">☀️</span>
+                    </div>
+                    <h4 class="font-display font-bold text-lg text-slate-900">Nguyễn Thị Kim Phương</h4>
+                    <p class="text-xs text-slate-600 mt-1.5 leading-relaxed">Năng động, hòa đồng, khuấy động tinh thần trực nhật và học tập của Tổ 4 (10 thành viên).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. DANH SÁCH ĐỦ 41 THÀNH VIÊN (LỌC THEO 4 TỔ + TÌM KIẾM) -->
+    <section id="danh-sach" class="py-14 sm:py-20 px-4 sm:px-6 border-b-2 border-slate-900 bg-white/60">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                <div>
+                    <span class="px-3 py-1 rounded-full bg-sun text-slate-900 text-xs font-extrabold border-2 border-slate-900">DANH BẠ LỚP 8B2</span>
+                    <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate-900 mt-3">Đủ Mặt 41 Thành Viên 8B2</h2>
+                </div>
+                <p class="text-slate-600 text-sm">Bấm vào từng thẻ bạn học để xem biệt danh vui & câu châm ngôn nhé!</p>
+            </div>
+
+            <!-- Thanh lọc Tổ & Tìm kiếm -->
+            <div class="bg-cream p-3.5 rounded-3xl border-2 border-slate-900 shadow-comic-sm mb-6 flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-3">
+                <div class="flex items-center gap-1.5 overflow-x-auto pb-1 lg:pb-0" id="group-filters">
+                    <button data-group="all" class="filter-btn shrink-0 px-4 py-2 rounded-xl text-xs sm:text-sm font-extrabold bg-slate-900 text-white border-2 border-slate-900">
+                        Tất cả (41)
+                    </button>
+                    <button data-group="1" class="filter-btn shrink-0 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white hover:bg-emerald-100 text-slate-800 border-2 border-slate-900">
+                        Tổ 1 (11)
+                    </button>
+                    <button data-group="2" class="filter-btn shrink-0 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white hover:bg-teal-100 text-slate-800 border-2 border-slate-900">
+                        Tổ 2 (10)
+                    </button>
+                    <button data-group="3" class="filter-btn shrink-0 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white hover:bg-violet-100 text-slate-800 border-2 border-slate-900">
+                        Tổ 3 (10)
+                    </button>
+                    <button data-group="4" class="filter-btn shrink-0 px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white hover:bg-rose-100 text-slate-800 border-2 border-slate-900">
+                        Tổ 4 (10)
+                    </button>
+                </div>
+
+                <div class="relative lg:w-80">
+                    <i data-lucide="search" class="w-4 h-4 text-slate-500 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+                    <input type="text" id="member-search" placeholder="Tìm tên thành viên hoặc biệt danh..."
+                           class="w-full pl-10 pr-4 py-2 rounded-xl bg-white border-2 border-slate-900 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-cobalt">
+                </div>
+            </div>
+
+            <!-- Lưới hiển thị 41 thành viên -->
+            <div id="members-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3.5">
+                <!-- Render bằng JavaScript -->
+            </div>
+
+            <div id="empty-state" class="hidden bg-white rounded-3xl p-10 text-center border-2 border-slate-900">
+                <p class="font-display font-bold text-lg text-slate-900">Không tìm thấy bạn nào khớp từ khóa!</p>
+                <p class="text-xs text-slate-500 mt-1">Bạn thử xóa từ khóa hoặc bấm chọn lại "Tất cả (41)" nhé.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. GÓC GỬI LỜI NHẮN / LƯU BÚT 8B2 -->
+    <section id="luu-but" class="py-14 sm:py-20 px-4 sm:px-6">
+        <div class="max-w-6xl mx-auto">
+            <div class="bg-cream rounded-[2.25rem] p-6 sm:p-10 border-2 border-slate-900 shadow-comic">
+                <div class="max-w-2xl mb-8">
+                    <span class="px-3 py-1 rounded-full bg-rose-200 text-slate-900 text-xs font-extrabold border-2 border-slate-900">BẢNG TIN KỶ NIỆM</span>
+                    <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate-900 mt-3">Góc Lưu Bút & Lời Nhắn 8B2</h2>
+                    <p class="text-slate-600 text-sm sm:text-base mt-1.5">Viết lại một kỷ niệm vui, lời chúc gửi thầy Phan Bá Nam hoặc nhắn nhủ tới 41 thành viên lớp mình!</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    <!-- Form đăng lưu bút (5 cột) -->
+                    <form id="note-form" class="lg:col-span-5 bg-white p-5 sm:p-6 rounded-3xl border-2 border-slate-900 shadow-comic-sm space-y-4">
+                        <div>
+                            <label class="block text-xs font-extrabold text-slate-900 uppercase mb-1.5">Tên bạn / Biệt danh</label>
+                            <input type="text" id="note-author" required placeholder="Tên bạn là gì?"
+                                   class="w-full px-3.5 py-2.5 rounded-xl bg-cream border-2 border-slate-900 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-cobalt">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-extrabold text-slate-900 uppercase mb-1.5">Chọn Sticker Meme</label>
+                            <div class="flex flex-wrap gap-2" id="sticker-list">
+                                <button type="button" data-emoji="😂" class="sticker-choice w-10 h-10 rounded-xl bg-sun border-2 border-slate-900 text-lg flex items-center justify-center font-bold">😂</button>
+                                <button type="button" data-emoji="💖" class="sticker-choice w-10 h-10 rounded-xl bg-white border-2 border-slate-900 text-lg flex items-center justify-center">💖</button>
+                                <button type="button" data-emoji="🚀" class="sticker-choice w-10 h-10 rounded-xl bg-white border-2 border-slate-900 text-lg flex items-center justify-center">🚀</button>
+                                <button type="button" data-emoji="🎓" class="sticker-choice w-10 h-10 rounded-xl bg-white border-2 border-slate-900 text-lg flex items-center justify-center">🎓</button>
+                                <button type="button" data-emoji="🍀" class="sticker-choice w-10 h-10 rounded-xl bg-white border-2 border-slate-900 text-lg flex items-center justify-center">🍀</button>
+                                <button type="button" data-emoji="🔥" class="sticker-choice w-10 h-10 rounded-xl bg-white border-2 border-slate-900 text-lg flex items-center justify-center">🔥</button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-extrabold text-slate-900 uppercase mb-1.5">Nội dung lời nhắn</label>
+                            <textarea id="note-content" rows="3" required placeholder="Gửi lời yêu thương tới 8B2..."
+                                      class="w-full px-3.5 py-2.5 rounded-xl bg-cream border-2 border-slate-900 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-cobalt"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-3 rounded-xl bg-cobalt hover:bg-blue-700 text-white font-bold text-sm border-2 border-slate-900 shadow-comic-sm active:translate-y-0.5 transition-all flex items-center justify-center gap-2">
+                            <i data-lucide="send" class="w-4 h-4"></i>
+                            <span>Dán lên bảng tin 8B2</span>
+                        </button>
+                    </form>
+
+                    <!-- Bảng tin hiển thị lời nhắn (7 cột) -->
+                    <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4" id="notes-wall">
+                        <div class="bg-amber-50 p-5 rounded-3xl border-2 border-slate-900 shadow-comic-sm">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-2xl">👑</span>
+                                <span class="px-2.5 py-0.5 rounded-lg bg-sun text-slate-900 text-[11px] font-extrabold border border-slate-900">Lớp trưởng</span>
+                            </div>
+                            <p class="text-sm text-slate-800 leading-relaxed mb-3">“Cảm ơn thầy Phan Bá Nam đã luôn đồng hành cùng 41 tụi em. Chúc 8B2 mình năm nay học thật giỏi và có thật nhiều kỷ niệm đẹp!”</p>
+                            <div class="text-xs font-extrabold text-slate-900">— Nguyễn Thị Loan Đài</div>
+                        </div>
+
+                        <div class="bg-sky-50 p-5 rounded-3xl border-2 border-slate-900 shadow-comic-sm">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-2xl">📚</span>
+                                <span class="px-2.5 py-0.5 rounded-lg bg-cobalt text-white text-[11px] font-extrabold border border-slate-900">Lớp phó HT</span>
+                            </div>
+                            <p class="text-sm text-slate-800 leading-relaxed mb-3">“Cả lớp mình cố gắng làm bài tập đầy đủ để không bạn nào bị ghi tên vào sổ đầu bài nha! 8B2 quyết thắng!”</p>
+                            <div class="text-xs font-extrabold text-slate-900">— Bùi Thị Thắm</div>
+                        </div>
+
+                        <div class="bg-emerald-50 p-5 rounded-3xl border-2 border-slate-900 shadow-comic-sm">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-2xl">⚡</span>
+                                <span class="px-2.5 py-0.5 rounded-lg bg-emerald-300 text-slate-900 text-[11px] font-extrabold border border-slate-900">Tổ trưởng Tổ 1</span>
+                            </div>
+                            <p class="text-sm text-slate-800 leading-relaxed mb-3">“Tổ 1 lúc nào cũng sẵn sàng dẫn đầu phong trào! Mãi đoàn kết như anh em một nhà nhé 8B2 ơi.”</p>
+                            <div class="text-xs font-extrabold text-slate-900">— Phạm Bình Minh</div>
+                        </div>
+
+                        <div class="bg-rose-50 p-5 rounded-3xl border-2 border-slate-900 shadow-comic-sm">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-2xl">🌸</span>
+                                <span class="px-2.5 py-0.5 rounded-lg bg-rose-300 text-slate-900 text-[11px] font-extrabold border border-slate-900">Tổ 3 & Tổ 4</span>
+                            </div>
+                            <p class="text-sm text-slate-800 leading-relaxed mb-3">“Mỗi giờ ra chơi chạy vù vù cùng tụi bạn là kỷ niệm tuổi 14 không bao giờ quên được. Yêu 8B2 nhiều lắm!”</p>
+                            <div class="text-xs font-extrabold text-slate-900">— Tường Vy & Kim Phương</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-8 px-4 bg-slate-900 text-white text-center border-t-2 border-slate-900">
+        <div class="max-w-4xl mx-auto space-y-2">
+            <p class="font-display font-bold text-lg text-sun">Tập Thể Lớp 8B2 — 41 Cá Tính Rực Rỡ</p>
+            <p class="text-xs text-slate-400">GVCN: Thầy Phan Bá Nam • Lớp trưởng: Nguyễn Thị Loan Đài • Lớp phó học tập: Bùi Thị Thắm</p>
+            <div class="pt-2">
+                <span class="inline-block px-4 py-1.5 rounded-full bg-slate-800/90 border border-slate-700 text-xs sm:text-sm font-semibold text-amber-300">
+                    ✨ Ý tưởng &amp; Chấp bút kỷ niệm: Nguyễn Đoàn Gia Bảo — Gửi trọn thanh xuân 8B2 ✨
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL CHI TIẾT THÀNH VIÊN -->
+    <div id="profile-modal" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4" onclick="closeProfile()">
+        <div class="bg-cream rounded-[2rem] max-w-md w-full p-6 border-2 border-slate-900 shadow-comic relative" onclick="event.stopPropagation()">
+            <button onclick="closeProfile()" class="absolute top-4 right-4 w-9 h-9 rounded-xl bg-white hover:bg-rose-100 border-2 border-slate-900 flex items-center justify-center">
+                <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+            <div class="flex items-center gap-4 mb-4">
+                <div id="pm-avatar" class="w-16 h-16 rounded-2xl font-display font-bold text-xl flex items-center justify-center border-2 border-slate-900 shadow-comic-sm shrink-0"></div>
+                <div>
+                    <div class="flex items-center gap-2 mb-1">
+                        <span id="pm-group" class="px-2.5 py-0.5 rounded-lg text-xs font-extrabold border border-slate-900"></span>
+                        <span id="pm-num" class="text-xs font-bold text-slate-500"></span>
+                    </div>
+                    <h3 id="pm-name" class="font-display font-bold text-xl text-slate-900"></h3>
+                    <p id="pm-role" class="text-xs font-extrabold text-cobalt mt-0.5"></p>
+                </div>
+            </div>
+            <div class="space-y-3 mb-5">
+                <div class="bg-white p-3.5 rounded-2xl border-2 border-slate-900">
+                    <span class="text-[11px] font-extrabold uppercase text-slate-400 block">Biệt danh lớp đặt</span>
+                    <p id="pm-nick" class="text-sm font-bold text-slate-900 mt-0.5"></p>
+                </div>
+                <div class="bg-sun/30 p-3.5 rounded-2xl border-2 border-slate-900">
+                    <span class="text-[11px] font-extrabold uppercase text-slate-700 block">Châm ngôn tuổi 14</span>
+                    <p id="pm-quote" class="text-sm text-slate-800 italic mt-0.5"></p>
+                </div>
+            </div>
+            <button onclick="closeProfile()" class="w-full py-2.5 rounded-xl bg-slate-900 text-white font-bold text-sm">Đóng thẻ thành viên</button>
+        </div>
+    </div>
+
+    <!-- TOAST THÔNG BÁO -->
+    <div id="toast" class="fixed bottom-5 right-5 z-50 hidden bg-slate-900 text-sun px-4 py-3 rounded-2xl border-2 border-sun shadow-lg text-xs font-bold flex items-center gap-2">
+        <span id="toast-msg">Đã thả cảm xúc!</span>
+    </div>
+
+    <script>
+        lucide.initIcons();
+
+        // Mobile menu
+        const mobileBtn = document.getElementById('mobile-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        document.querySelectorAll('.m-link').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+        // 1. TƯƠNG TÁC KHỐI GIỜ RA CHƠI & ĐỜI THƯỜNG (ĐỔI MEME BÊN CẠNH)
+        const momentsData = [
+            {
+                badge: "MEME #04 • GIỜ RA CHƠI",
+                speed: "Vận tốc: 100 km/h",
+                caption: "“Trống ra chơi vừa đánh tiếng đầu tiên: 41 vận động viên điền kinh 8B2 lập tức phóng vù vù xuống căng-tin!”",
+                likes: 124,
+                svg: `
+                    <svg class="w-full h-56 sm:h-64" viewBox="0 0 420 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Tiếng trống RENG RENG -->
+                        <circle cx="65" cy="48" r="24" fill="#FACC15" stroke="#0F172A" stroke-width="3"/>
+                        <text x="65" y="53" text-anchor="middle" font-weight="800" font-size="11" fill="#0F172A">RENG!!</text>
+                        <path d="M96 36L114 28M98 48H118M96 60L114 68" stroke="#EF4444" stroke-width="3" stroke-linecap="round"/>
+
+                        <!-- Biển chỉ hướng Căng-tin -->
+                        <rect x="295" y="25" width="105" height="32" rx="8" fill="#EF4444" stroke="#0F172A" stroke-width="2.5"/>
+                        <text x="347" y="45" text-anchor="middle" fill="#FFFFFF" font-weight="800" font-size="12">CĂNG-TIN ➔</text>
+
+                        <!-- Vệt gió chạy vù vù -->
+                        <line x1="25" y1="115" x2="115" y2="115" stroke="#38BDF8" stroke-width="4" stroke-linecap="round"/>
+                        <line x1="40" y1="145" x2="135" y2="145" stroke="#F59E0B" stroke-width="4" stroke-linecap="round"/>
+                        <line x1="20" y1="175" x2="105" y2="175" stroke="#38BDF8" stroke-width="4" stroke-linecap="round"/>
+
+                        <!-- Nhân vật 1 lao đi như tia chớp -->
+                        <g transform="translate(135, 85)">
+                            <circle cx="45" cy="30" r="21" fill="#FDE68A" stroke="#0F172A" stroke-width="2.5"/>
+                            <path d="M24 26C24 12 34 6 45 6C56 6 66 12 66 26" fill="#0F172A"/>
+                            <circle cx="52" cy="29" r="2.5" fill="#0F172A"/>
+                            <path d="M46 38Q54 42 58 36" stroke="#0F172A" stroke-width="2.2" stroke-linecap="round"/>
+                            <!-- Thân nghiêng về phía trước chạy tốc độ -->
+                            <path d="M35 52L58 52L46 92L22 92Z" fill="#2563EB" stroke="#0F172A" stroke-width="2.5"/>
+                            <!-- Chân sải bước rộng -->
+                            <path d="M25 92L5 118M45 92L75 112" stroke="#0F172A" stroke-width="4" stroke-linecap="round"/>
+                        </g>
+
+                        <!-- Nhân vật 2 chạy theo sau -->
+                        <g transform="translate(245, 92)">
+                            <circle cx="45" cy="30" r="20" fill="#FED7AA" stroke="#0F172A" stroke-width="2.5"/>
+                            <path d="M25 26C25 12 34 6 45 6C56 6 65 12 65 26" fill="#1E293B"/>
+                            <circle cx="52" cy="29" r="2.5" fill="#0F172A"/>
+                            <path d="M35 50L56 50L45 88L24 88Z" fill="#34D399" stroke="#0F172A" stroke-width="2.5"/>
+                            <path d="M26 88L8 112M44 88L70 108" stroke="#0F172A" stroke-width="4" stroke-linecap="round"/>
+                        </g>
+                    </svg>
+                `
+            },
+            {
+                badge: "MEME #05 • KIỂM TRA 15 PHÚT",
+                speed: "Nhịp tim: 140 bpm",
+                caption: "“5 phút trước giờ kiểm tra 15 phút: Bàn của Lớp phó Bùi Thị Thắm đông vui hơn cả lễ hội!”",
+                likes: 98,
+                svg: `
+                    <svg class="w-full h-56 sm:h-64" viewBox="0 0 420 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="75" y="16" width="270" height="36" rx="10" fill="#2563EB" stroke="#0F172A" stroke-width="2.5"/>
+                        <text x="210" y="39" text-anchor="middle" fill="#FFFFFF" font-weight="800" font-size="12">“Thắm ơi giảng lại câu 3 siêu tốc!!”</text>
+
+                        <!-- Bàn học ở giữa -->
+                        <rect x="90" y="165" width="240" height="14" rx="5" fill="#F59E0B" stroke="#0F172A" stroke-width="2.5"/>
+                        <!-- Lớp phó ở giữa giơ cuốn vở bí kíp -->
+                        <circle cx="210" cy="95" r="22" fill="#FDE68A" stroke="#0F172A" stroke-width="2.5"/>
+                        <path d="M188 91C188 75 198 69 210 69C222 69 232 75 232 91" fill="#0F172A"/>
+                        <rect x="196" y="90" width="11" height="8" rx="2" fill="white" stroke="#0F172A" stroke-width="1.8"/>
+                        <rect x="213" y="90" width="11" height="8" rx="2" fill="white" stroke="#0F172A" stroke-width="1.8"/>
+                        <rect x="190" y="120" width="40" height="45" rx="10" fill="#38BDF8" stroke="#0F172A" stroke-width="2.5"/>
+
+                        <!-- 2 bạn chụm đầu hai bên -->
+                        <circle cx="135" cy="112" r="20" fill="#FED7AA" stroke="#0F172A" stroke-width="2.5"/>
+                        <rect x="118" y="134" width="34" height="31" rx="8" fill="#FACC15" stroke="#0F172A" stroke-width="2.5"/>
+
+                        <circle cx="285" cy="112" r="20" fill="#FDE68A" stroke="#0F172A" stroke-width="2.5"/>
+                        <rect x="268" y="134" width="34" height="31" rx="8" fill="#FB7185" stroke="#0F172A" stroke-width="2.5"/>
+
+                        <text x="210" y="208" text-anchor="middle" fill="#0F172A" font-weight="700" font-size="12">Tốc độ tiếp thu kiến thức tăng 300% phút chót!</text>
+                    </svg>
+                `
+            },
+            {
+                badge: "MEME #06 • TRỰC NHẬT THẦN TỐC",
+                speed: "Độ sạch: 10/10",
+                caption: "“Khi nghe tin sao đỏ sắp đi chấm điểm thi đua: Cả 4 tổ đồng loạt hóa thân thành siêu nhân dọn lớp!”",
+                likes: 112,
+                svg: `
+                    <svg class="w-full h-56 sm:h-64" viewBox="0 0 420 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="65" y="16" width="290" height="36" rx="10" fill="#10B981" stroke="#0F172A" stroke-width="2.5"/>
+                        <text x="210" y="39" text-anchor="middle" fill="#0F172A" font-weight="800" font-size="12">“Sao đỏ tới đầu hành lang rồi, quét lẹ!!”</text>
+
+                        <!-- Nhân vật cầm chổi quét lấp lánh -->
+                        <circle cx="155" cy="102" r="22" fill="#FDE68A" stroke="#0F172A" stroke-width="2.5"/>
+                        <path d="M133 98C133 82 143 76 155 76C167 76 177 82 177 98" fill="#0F172A"/>
+                        <rect x="137" y="126" width="36" height="48" rx="10" fill="#A78BFA" stroke="#0F172A" stroke-width="2.5"/>
+                        <!-- Cây chổi -->
+                        <line x1="185" y1="95" x2="170" y2="185" stroke="#92400E" stroke-width="4" stroke-linecap="round"/>
+                        <polygon points="158,185 182,185 188,205 152,205" fill="#FACC15" stroke="#0F172A" stroke-width="2"/>
+
+                        <!-- Nhân vật lau bảng sạch bóng -->
+                        <rect x="235" y="75" width="135" height="85" rx="8" fill="#0F766E" stroke="#0F172A" stroke-width="3"/>
+                        <text x="302" y="115" text-anchor="middle" fill="#FEF08A" font-weight="800" font-size="14">✨ SẠCH BÓNG ✨</text>
+                        <text x="302" y="136" text-anchor="middle" fill="#FFFFFF" font-weight="600" font-size="11">8B2 Vô Địch</text>
+                    </svg>
+                `
+            }
+        ];
+
+        function selectMoment(idx) {
+            const data = momentsData[idx];
+            document.getElementById('moment-badge').textContent = data.badge;
+            document.getElementById('moment-speed').textContent = data.speed;
+            document.getElementById('moment-canvas').innerHTML = data.svg;
+            document.getElementById('moment-caption').textContent = data.caption;
+            document.getElementById('moment-likes').textContent = data.likes;
+
+            document.querySelectorAll('.moment-btn').forEach((btn, i) => {
+                if (i === idx) {
+                    btn.className = "moment-btn w-full text-left p-4 rounded-2xl bg-sun border-2 border-slate-900 shadow-comic-sm flex items-center justify-between transition-all";
+                } else {
+                    btn.className = "moment-btn w-full text-left p-4 rounded-2xl bg-white hover:bg-slate-50 border-2 border-slate-900 flex items-center justify-between transition-all";
+                }
+            });
+        }
+        // Khởi tạo mặc định tình huống 0
+        selectMoment(0);
+
+        // Nút thả cảm xúc cho Meme
+        function likeMeme(btn) {
+            const numSpan = btn.querySelectorAll('span')[1];
+            const current = parseInt(numSpan.textContent, 10);
+            numSpan.textContent = current + 1;
+            showToast("Đã thả tim cho meme lớp 8B2!");
+        }
+
+        // 2. DỮ LIỆU ĐỦ 41 THÀNH VIÊN LỚP 8B2 (Tổ 1: 11 | Tổ 2: 10 | Tổ 3: 10 | Tổ 4: 10)
+        const students = [
+            // --- TỔ 1 (11 thành viên) ---
+            { id: 1, name: "Phạm Bình Minh", group: 1, role: "Tổ trưởng Tổ 1", nick: "Người giữ nhịp Tổ 1", quote: "Đi học đúng giờ, làm bài đầy đủ, Tổ 1 luôn tiến lên!" },
+            { id: 2, name: "Nguyễn Thị Loan Đài", group: 1, role: "Lớp trưởng", nick: "Thủ lĩnh toàn năng 8B2", quote: "Đoàn kết là sức mạnh giúp 8B2 vượt qua mọi thử thách." },
+            { id: 3, name: "Nguyễn Gia Bảo", group: 1, role: "Thành viên", nick: "Cây hài bàn cuối", quote: "Một nụ cười bằng mười thang thuốc bổ mỗi giờ ra chơi." },
+            { id: 4, name: "Lê Thu Trang", group: 1, role: "Thành viên", nick: "Nét chữ nết người", quote: "Vở sạch chữ đẹp nhìn là muốn ôn bài ngay!" },
+            { id: 5, name: "Trần Hoàng Nam", group: 1, role: "Thành viên", nick: "Chân sút chủ lực 8B2", quote: "Trên sân cỏ hết mình, trong lớp học hết sức." },
+            { id: 6, name: "Đặng Yến Ly", group: 1, role: "Thành viên", nick: "Giọng ca vàng Tổ 1", quote: "Âm nhạc giúp mọi tiết sinh hoạt lớp trở nên rực rỡ." },
+            { id: 7, name: "Vũ Minh Khang", group: 1, role: "Thành viên", nick: "Chiến thần giải toán", quote: "Không có bài toán nào khó, chỉ sợ chưa tìm ra công thức." },
+            { id: 8, name: "Hoàng Ngọc Anh", group: 1, role: "Thành viên", nick: "Vận động viên chạy căng-tin", quote: "Có thực mới vực được đạo, căng-tin thẳng tiến!" },
+            { id: 9, name: "Bùi Đức Anh", group: 1, role: "Thành viên", nick: "Nhà tư tưởng trầm lặng", quote: "Ít nói nhưng đã phát biểu là chuẩn không cần chỉnh." },
+            { id: 10, name: "Phạm Khánh Linh", group: 1, role: "Thành viên", nick: "Bàn tay vàng trang trí", quote: "Báo tường 8B2 lúc nào cũng phải đẹp nhất khối!" },
+            { id: 11, name: "Đỗ Quang Huy", group: 1, role: "Thành viên", nick: "Ra-đa bắt sóng nhanh", quote: "Luôn sẵn sàng hỗ trợ đồng đội mọi lúc mọi nơi." },
+
+            // --- TỔ 2 (10 thành viên) ---
+            { id: 12, name: "Bùi Thị Thắm", group: 2, role: "Lớp phó học tập • Tổ trưởng Tổ 2", nick: "Từ điển sống của 8B2", quote: "Cùng nhau học tốt để không bạn nào bị bỏ lại phía sau." },
+            { id: 13, name: "Nguyễn Minh Tuấn", group: 2, role: "Thành viên", nick: "Tia chớp phản xạ", quote: "Thầy vừa đặt câu hỏi là cánh tay đã giơ lên ngay." },
+            { id: 14, name: "Trần Mai Phương", group: 2, role: "Thành viên", nick: "Cô bạn dịu dàng", quote: "Sự tử tế nhỏ bé luôn mang lại niềm vui lớn mỗi ngày." },
+            { id: 15, name: "Lê Hoàng Phúc", group: 2, role: "Thành viên", nick: "Vận động viên điền kinh", quote: "Trống ra chơi vừa vang là có mặt ở sân trường." },
+            { id: 16, name: "Phạm Thảo Vy", group: 2, role: "Thành viên", nick: "Đại sứ văn nghệ", quote: "Tuổi học trò vui nhất là những lần tập văn nghệ cùng lớp." },
+            { id: 17, name: "Nguyễn Thành Đạt", group: 2, role: "Thành viên", nick: "Kỹ sư trưởng lớp học", quote: "Quạt kêu hay bảng lỏng cứ để mình lo!" },
+            { id: 18, name: "Vũ Hà My", group: 2, role: "Thành viên", nick: "Chủ tiệm văn phòng phẩm", quote: "Hộp bút đủ 7 sắc cầu vồng sẵn sàng cho bạn mượn." },
+            { id: 19, name: "Đặng Quốc Bảo", group: 2, role: "Thành viên", nick: "Chàng trai thân thiện", quote: "Ai nhờ việc gì cũng gật đầu nhiệt tình hết cỡ." },
+            { id: 20, name: "Hoàng Lan Chi", group: 2, role: "Thành viên", nick: "Cao thủ Tiếng Anh", quote: "Học thêm một ngôn ngữ là mở thêm một thế giới mới." },
+            { id: 21, name: "Ngô Anh Khoa", group: 2, role: "Thành viên", nick: "Chuyên gia chép bài thần tốc", quote: "Tốc độ ghi chép tỷ lệ thuận với tiếng trống hết giờ." },
+
+            // --- TỔ 3 (10 thành viên) ---
+            { id: 22, name: "Nguyễn Ngọc Tường Vy", group: 3, role: "Tổ trưởng Tổ 3", nick: "Thủ lĩnh chu đáo Tổ 3", quote: "Gọn gàng, kỷ luật và luôn gắn kết từng thành viên." },
+            { id: 23, name: "Trần Gia Hưng", group: 3, role: "Thành viên", nick: "Kho chuyện cười không đáy", quote: "Ở đâu có Hưng, ở đó Tổ 3 cười không ngớt." },
+            { id: 24, name: "Lê Ngọc Hân", group: 3, role: "Thành viên", nick: "Người lắng nghe ấm áp", quote: "Luôn ở bên chia sẻ mọi buồn vui tuổi học trò." },
+            { id: 25, name: "Phạm Tuấn Kiệt", group: 3, role: "Thành viên", nick: "Chuyên gia công nghệ", quote: "Tin học và lập trình là niềm đam mê bất tận." },
+            { id: 26, name: "Nguyễn Bảo Trâm", group: 3, role: "Thành viên", nick: "Chiến thần trực nhật", quote: "Lớp sạch bóng thì học bài mới vào đầu!" },
+            { id: 27, name: "Đỗ Minh Quân", group: 3, role: "Thành viên", nick: "Cột mốc chiều cao 8B2", quote: "Chuyên gia lau phần bảng cao nhất mà không cần ghế." },
+            { id: 28, name: "Vũ Thùy Dương", group: 3, role: "Thành viên", nick: "Học đều mọi môn", quote: "Kiên trì từng chút một mỗi ngày sẽ tạo nên kỳ tích." },
+            { id: 29, name: "Hoàng Tiến Dũng", group: 3, role: "Thành viên", nick: "Nhiệt huyết thể thao", quote: "Chơi hết mình, cổ vũ hết giọng cho 8B2." },
+            { id: 30, name: "Bùi Khánh Huyền", group: 3, role: "Thành viên", nick: "Họa sĩ chibi của lớp", quote: "Vẽ lại từng khoảnh khắc đáng yêu của 41 thành viên." },
+            { id: 31, name: "Lý Nhật Minh", group: 3, role: "Thành viên", nick: "Người giữ hòa khí", quote: "Bình tĩnh, tự tin và luôn mỉm cười trước mọi việc." },
+
+            // --- TỔ 4 (10 thành viên) ---
+            { id: 32, name: "Nguyễn Thị Kim Phương", group: 4, role: "Tổ trưởng Tổ 4", nick: "Năng lượng mặt trời Tổ 4", quote: "Nhiệt huyết, trách nhiệm và luôn dẫn đầu phong trào." },
+            { id: 33, name: "Trần Đức Minh", group: 4, role: "Thành viên", nick: "Đạo diễn Meme 8B2", quote: "Bắt trọn mọi khoảnh khắc hài hước của đồng đội." },
+            { id: 34, name: "Nguyễn Phương Thảo", group: 4, role: "Thành viên", nick: "Giọng đọc truyền cảm", quote: "Yêu văn học và những trang sách đầy cảm xúc." },
+            { id: 35, name: "Lê Đình Khôi", group: 4, role: "Thành viên", nick: "Thánh đặt câu hỏi", quote: "Tò mò là khởi đầu của mọi khám phá thú vị." },
+            { id: 36, name: "Phạm Quỳnh Anh", group: 4, role: "Thành viên", nick: "Vitamin tích cực", quote: "Mỗi buổi sáng đến trường là một niềm vui mới." },
+            { id: 37, name: "Vũ Hải Đăng", group: 4, role: "Thành viên", nick: "Ngọn hải đăng hình học", quote: "Vẽ thêm một đường phụ là bài toán sáng tỏ ngay." },
+            { id: 38, name: "Đặng Minh Thư", group: 4, role: "Thành viên", nick: "Bậc thầy sơ đồ tư duy", quote: "Tóm tắt kiến thức gọn gàng giúp cả tổ dễ nhớ bài." },
+            { id: 39, name: "Nguyễn Trung Hiếu", group: 4, role: "Thành viên", nick: "Người bạn tốt bụng", quote: "Sẵn sàng giúp đỡ bạn bè từ việc nhỏ nhất." },
+            { id: 40, name: "Hoàng Bảo Ngọc", group: 4, role: "Thành viên", nick: "Nụ cười tỏa nắng", quote: "Cùng nhau tạo nên thanh xuân rực rỡ nhất tại 8B2." },
+            { id: 41, name: "Trịnh Gia Huy", group: 4, role: "Thành viên", nick: "Mảnh ghép thứ 41 hoàn hảo", quote: "Tự hào là một thành viên của đại gia đình 8B2!" }
+        ];
+
+        const groupColors = {
+            1: { avatar: "bg-emerald-400 text-slate-900", badge: "bg-emerald-100 text-emerald-900" },
+            2: { avatar: "bg-sky-400 text-slate-900", badge: "bg-sky-100 text-sky-900" },
+            3: { avatar: "bg-violet-300 text-slate-900", badge: "bg-violet-100 text-violet-900" },
+            4: { avatar: "bg-rose-300 text-slate-900", badge: "bg-rose-100 text-rose-900" }
+        };
+
+        function getInitials(name) {
+            const parts = name.trim().split(/\s+/);
+            if (parts.length === 1) return parts[0].substring(0, 2).toUpperCase();
+            return (parts[parts.length - 2][0] + parts[parts.length - 1][0]).toUpperCase();
+        }
+
+        const membersGrid = document.getElementById('members-grid');
+        const emptyState = document.getElementById('empty-state');
+        const searchInput = document.getElementById('member-search');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+
+        let currentGroup = 'all';
+        let currentQuery = '';
+
+        function renderStudents() {
+            const q = currentQuery.toLowerCase().trim();
+            const filtered = students.filter(s => {
+                const matchGroup = currentGroup === 'all' || s.group.toString() === currentGroup;
+                const matchQuery = s.name.toLowerCase().includes(q) || s.nick.toLowerCase().includes(q) || s.role.toLowerCase().includes(q);
+                return matchGroup && matchQuery;
+            });
+
+            if (filtered.length === 0) {
+                membersGrid.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+            membersGrid.innerHTML = filtered.map(s => {
+                const style = groupColors[s.group];
+                const isLeader = s.role !== "Thành viên";
+                return `
+                    <div onclick="openProfile(${s.id})"
+                         class="cursor-pointer bg-cream hover:bg-white rounded-2xl p-4 border-2 border-slate-900 ${isLeader ? 'bg-amber-50/90 shadow-comic-sm' : ''} hover:-translate-y-1 transition-all flex flex-col justify-between">
+                        <div class="flex items-center gap-3 mb-2.5">
+                            <div class="w-11 h-11 rounded-xl ${style.avatar} font-display font-bold text-sm flex items-center justify-center border-2 border-slate-900 shrink-0">
+                                ${getInitials(s.name)}
+                            </div>
+                            <div class="min-w-0">
+                                <h3 class="font-display font-bold text-[15px] text-slate-900 truncate">${s.name}</h3>
+                                <div class="flex flex-wrap items-center gap-1 mt-0.5">
+                                    <span class="px-2 py-0.5 rounded-md text-[10px] font-extrabold border border-slate-900 ${style.badge}">Tổ ${s.group}</span>
+                                    ${isLeader ? `<span class="px-2 py-0.5 rounded-md text-[10px] font-extrabold bg-sun text-slate-900 border border-slate-900">★ ${s.role.split('•')[0].trim()}</span>` : ''}
+                                </div>
+                            </div>
+                        </div>
+                        <p class="text-xs font-medium text-slate-600 bg-white px-2.5 py-1.5 rounded-xl border border-slate-300 truncate">
+                            “${s.nick}”
+                        </p>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('bg-slate-900', 'text-white', 'font-extrabold');
+                    b.classList.add('bg-white', 'text-slate-800', 'font-bold');
+                });
+                btn.classList.add('bg-slate-900', 'text-white', 'font-extrabold');
+                btn.classList.remove('bg-white', 'text-slate-800', 'font-bold');
+                currentGroup = btn.getAttribute('data-group');
+                renderStudents();
+            });
+        });
+
+        searchInput.addEventListener('input', e => {
+            currentQuery = e.target.value;
+            renderStudents();
+        });
+
+        renderStudents();
+
+        // Modal Chi tiết thành viên
+        function openProfile(id) {
+            const s = students.find(item => item.id === id);
+            if (!s) return;
+            const style = groupColors[s.group];
+
+            const av = document.getElementById('pm-avatar');
+            av.className = `w-16 h-16 rounded-2xl ${style.avatar} font-display font-bold text-xl flex items-center justify-center border-2 border-slate-900 shadow-comic-sm shrink-0`;
+            av.textContent = getInitials(s.name);
+
+            const grp = document.getElementById('pm-group');
+            grp.className = `px-2.5 py-0.5 rounded-lg text-xs font-extrabold border border-slate-900 ${style.badge}`;
+            grp.textContent = `Tổ ${s.group}`;
+
+            document.getElementById('pm-num').textContent = `Thành viên #${s.id < 10 ? '0' + s.id : s.id}`;
+            document.getElementById('pm-name').textContent = s.name;
+            document.getElementById('pm-role').textContent = s.role;
+            document.getElementById('pm-nick').textContent = s.nick;
+            document.getElementById('pm-quote').textContent = `“${s.quote}”`;
+
+            document.getElementById('profile-modal').classList.remove('hidden');
+        }
+
+        function closeProfile() {
+            document.getElementById('profile-modal').classList.add('hidden');
+        }
+
+        // 3. GÓC LƯU BÚT TƯƠNG TÁC
+        let selectedEmoji = "😂";
+        const stickerChoices = document.querySelectorAll('.sticker-choice');
+        stickerChoices.forEach(btn => {
+            btn.addEventListener('click', () => {
+                stickerChoices.forEach(b => {
+                    b.classList.remove('bg-sun', 'font-bold');
+                    b.classList.add('bg-white');
+                });
+                btn.classList.remove('bg-white');
+                btn.classList.add('bg-sun', 'font-bold');
+                selectedEmoji = btn.getAttribute('data-emoji');
+            });
+        });
+
+        const noteForm = document.getElementById('note-form');
+        const notesWall = document.getElementById('notes-wall');
+
+        noteForm.addEventListener('submit', e => {
+            e.preventDefault();
+            const author = document.getElementById('note-author').value.trim();
+            const content = document.getElementById('note-content').value.trim();
+            if (!author || !content) return;
+
+            const safeAuthor = author.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            const safeContent = content.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
+            const card = document.createElement('div');
+            card.className = "bg-amber-50 p-5 rounded-3xl border-2 border-slate-900 shadow-comic-sm";
+            card.innerHTML = `
+                <div class="flex items-center justify-between mb-2">
+                    <span class="text-2xl">${selectedEmoji}</span>
+                    <span class="px-2.5 py-0.5 rounded-lg bg-sun text-slate-900 text-[11px] font-extrabold border border-slate-900">Vừa đăng</span>
+                </div>
+                <p class="text-sm text-slate-800 leading-relaxed mb-3">“${safeContent}”</p>
+                <div class="text-xs font-extrabold text-slate-900">— ${safeAuthor}</div>
+            `;
+
+            notesWall.prepend(card);
+            noteForm.reset();
+            showToast("Đã dán lời nhắn của bạn lên bảng tin 8B2!");
+        });
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-msg').textContent = msg;
+            toast.classList.remove('hidden');
+            setTimeout(() => toast.classList.add('hidden'), 2500);
+        }
+    </script>
+</body>
+</html>
